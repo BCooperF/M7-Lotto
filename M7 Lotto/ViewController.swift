@@ -17,33 +17,43 @@ class ViewController: UIViewController {
 	@IBOutlet weak var numLabel6: UILabel!
 	@IBOutlet weak var numLabel7: UILabel!
 	
+	
+	@IBOutlet var labels: [UILabel]!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
 	
-	func getColor(from number: Int?) -> (backgroundColor: UIColor, UIColor){
+	func getColors(from number: Int?) -> (backgroundColor: UIColor, textColor: UIColor){
 		guard let number else{
 			return (UIColor.purple, UIColor.white)
 		}
-		
 		switch number {
-		case 1 ... 10:
-			return (UIColor.red, UIColor.green)
-		case 11 ... 20:
-			return (UIColor.red, UIColor.green)
-		case 21 ... 30:
-			return (UIColor.red, UIColor.green)
-		case 31 ... 40:
-			return (UIColor.red, UIColor.green)
-		case 41 ... 50:
-			return (UIColor.red, UIColor.green)
+		case 1...10:
+			return (UIColor.red, UIColor.white)
+		case 11...20:
+			return (UIColor.green, UIColor.black)
+		case 21...30:
+			return (UIColor.blue, UIColor.white)
+		case 31...40:
+			return (UIColor.yellow, UIColor.black)
+		case 41...45:
+			return (UIColor.gray, UIColor.white)
 		default:
-			return (UIColor.red, UIColor.green)
+			return (UIColor.purple, UIColor.white)
 		}
 	}
 
+	override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
+		coordinator.animate { _ in
+			for label in self.labels {
+				label.layer.cornerRadius = label.bounds.width / 2
+				label.clipsToBounds = true
+			}
+		}
+	}
+	
 	override func viewDidAppear(_ animated: Bool) {
-		let labels = [numLabel1!,numLabel2!,numLabel3!,numLabel4!,numLabel5!,numLabel6!,numLabel7!]
 		var nums = [Int]()
 		while nums.count < labels.count {
 			let rnd = Int.random(in: 1...45)
@@ -51,19 +61,21 @@ class ViewController: UIViewController {
 				nums.append(rnd)
 			}
 		}
-		let sortedNums = nums.sorted()
+		nums.sort()
 		
 		for (index,label) in labels.enumerated() {
 			label.layer.cornerRadius = numLabel1.bounds.width / 2
 			label.clipsToBounds = true
 			
-			label.text = "\(sortedNums[index])"
+			label.text = "\(nums[index])"
 			
-			label.backgroundColor = getColor(from: sortedNums[Index]).backgroundColor
+			label.backgroundColor = getColors(from:nums[index]).backgroundColor
+			label.textColor = getColors(from:nums[index]).textColor
 		}
 		
-		let colors = getColors(from: nil)
-		numLabel7.backgroundColor = UIColor.purple
-		numLabel7.textColor = UIColor.white
+		let colors = getColors(from:nil)
+		numLabel7.backgroundColor = colors.backgroundColor
+		numLabel7.textColor = colors.textColor
 	}
+
 }

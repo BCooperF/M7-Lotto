@@ -89,6 +89,22 @@
                             <constraint firstItem="PTC-WI-Mzu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="tse-0K-jUR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="numLabel1" destination="CXc-Oz-lup" id="yQh-rN-yUp"/>
+                        <outlet property="numLabel2" destination="Bzw-y8-8hr" id="3oL-mu-493"/>
+                        <outlet property="numLabel3" destination="xdh-h8-j8y" id="zEW-aJ-1MB"/>
+                        <outlet property="numLabel4" destination="ned-my-Omg" id="cHw-9d-0wX"/>
+                        <outlet property="numLabel5" destination="yZc-Rz-Bpq" id="o6H-Df-lvx"/>
+                        <outlet property="numLabel6" destination="Yqr-7X-EXN" id="r0a-70-JS8"/>
+                        <outlet property="numLabel7" destination="Zyq-ng-KZ9" id="3WV-Mw-Z7J"/>
+                        <outletCollection property="labels" destination="CXc-Oz-lup" collectionClass="NSMutableArray" id="ueS-IA-JgD"/>
+                        <outletCollection property="labels" destination="Bzw-y8-8hr" collectionClass="NSMutableArray" id="hMq-tD-V88"/>
+                        <outletCollection property="labels" destination="xdh-h8-j8y" collectionClass="NSMutableArray" id="q51-K5-32a"/>
+                        <outletCollection property="labels" destination="ned-my-Omg" collectionClass="NSMutableArray" id="fKV-Ao-VwH"/>
+                        <outletCollection property="labels" destination="yZc-Rz-Bpq" collectionClass="NSMutableArray" id="yW3-iz-2bC"/>
+                        <outletCollection property="labels" destination="Yqr-7X-EXN" collectionClass="NSMutableArray" id="Kum-l1-57p"/>
+                        <outletCollection property="labels" destination="Zyq-ng-KZ9" collectionClass="NSMutableArray" id="V3H-y1-EYj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,7 +116,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
